@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+
+<robot name="rampa">
+
+<material name="blue">
+    <color rgba="0 0 1 1"/>
+</material>
+
+    <link name="plano1">
+
+        <inertial>
+            <origin rpy="0.46 0 0"  xyz="0 6.5 0.75" />
+            <mass value="1000.0" />
+            <inertia ixx="1.0" ixy="0.0" ixz="0.0"
+            iyy="1.0" iyz="0.0" izz="1.0" />
+
+        </inertial>
+        <visual>        
+            <origin rpy="0.46 0 0" xyz="0 6.5 0.75" />
+            <geometry>
+                <box size="2 3.35 0.001" />
+            </geometry>
+            </material name="blue" />
+        </visual>
+
+        <collision>
+            <origin rpy="0.46 0 0" xyz="0 6.5 0.75" />
+            <geometry>
+             <box size="2 3.35 0.001" />
+            </geometry>
+        </collision>
+
+    </link>
+
+    <link name="base">
+
+        <inertial>
+            <origin rpy="0 0 0"  xyz="0 10 0.75" />
+            <mass value="1000.0" />
+            <inertia ixx="1.0" ixy="0.0" ixz="0.0"
+            iyy="1.0" iyz="0.0" izz="1.0" />
+
+        </inertial>
+        <visual>        
+            <origin rpy="0 0 0" xyz="0 10 0.75" />
+            <geometry>
+                <box size="2 4 1.5" />
+            </geometry>
+            </material name="blue" />
+        </visual>
+
+        <collision>
+            <origin rpy="0 0 0" xyz="0 10 0.75" />
+            <geometry>
+             <box size="2 4 1.5" />
+            </geometry>
+        </collision>
+    
+    </link>
+
+    <joint name="plano1_base" type="fixed">
+        <origin rpy="0 0 0" xyz="0 0 0" />
+        <parent link="base" />
+        <child link="plano1" />
+    </joint>
+
+    <link name="plano2">
+
+        <inertial>
+            <origin rpy="-0.46 0 0"  xyz="0 13.5 0.75" />
+            <mass value="1000.0" />
+            <inertia ixx="1.0" ixy="0.0" ixz="0.0"
+            iyy="1.0" iyz="0.0" izz="1.0" />
+
+        </inertial>
+        <visual>        
+            <origin rpy="-0.46 0 0" xyz="0 13.5 0.75" />
+            <geometry>
+                <box size="2 3.35 0.001" />
+            </geometry>
+            </material name="blue" />
+        </visual>
+
+        <collision>
+            <origin rpy="-0.46 0 0" xyz="0 13.5 0.75" />
+            <geometry>
+             <box size="2 3.35 0.001" />
+            </geometry>
+        </collision>
+
+    </link>
+
+    <joint name="base_plano2" type="fixed">
+        <origin rpy="0 0 0" xyz="0 0 0" />
+        <parent link="base" />
+        <child link="plano2" />
+    </joint>
+
+
+</robot>

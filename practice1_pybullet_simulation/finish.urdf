@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+
+<robot name="finish">
+
+<material name="green">
+    <color rgba="0 1 0 1"/>
+</material>
+
+    <link name="finish">
+
+        <inertial>
+            <origin rpy="0 0 0"  xyz="0 20 0.0005" />
+            <mass value="100000.0" />
+            <inertia ixx="1.0" ixy="0.0" ixz="0.0"
+            iyy="1.0" iyz="0.0" izz="1.0" />
+
+        </inertial>
+        <visual>        
+            <origin rpy="0 0 0" xyz="0 20 0.0005" />
+            <geometry>
+                <box size="3 1 0.001" />
+            </geometry>
+            </material name="green" />
+        </visual>
+
+        <collision>
+            <origin rpy="0 0 0" xyz="0 20 0.00005" />
+            <geometry>
+             <box size="3 1 0.001" />
+            </geometry>
+        </collision>
+
+    </link>
+</robot>

@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+
+<robot name="barrier">
+
+<material name="red">
+    <color rgba="1 0 0 1"/>
+</material>
+
+    <link name="vertical_post">
+
+        <inertial>
+            <origin rpy="0 0 0"  xyz="-1.5 17 0.5" />
+            <mass value="100000.0" />
+            <inertia ixx="1.0" ixy="0.0" ixz="0.0"
+            iyy="1.0" iyz="0.0" izz="1.0" />
+
+        </inertial>
+        <visual>        
+            <origin rpy="0 0 0" xyz="-1.5 17 0.5" />
+            <geometry>
+                <cylinder length="1.5" radius="0.15" />
+            </geometry>
+            </material name="red" />
+        </visual>
+
+        <collision>
+            <origin rpy="0 0 0" xyz="-1.5 17 0.5" />
+            <geometry>
+             <cylinder length="1.5" radius="0.15" />
+            </geometry>
+        </collision>
+
+    </link>
+
+    <joint name="vertical_post_to_horizontal_post" type="continuous">
+        <origin xyz="-1.5 17 0.15" />
+        <parent link="vertical_post" />
+        <child link="horizontal_post" />
+        <dynamics damping="1.0" friction="0.0001" />
+        <axis xyz="0 0 1" />
+    </joint>
+
+    <link name="horizontal_post">
+
+        <inertial>
+            <origin rpy="0 0 0"  xyz="1 0 0.05" />
+            <mass value="5.0" />
+            <inertia ixx="629/240" ixy="0.0" ixz="0.0"
+            iyy="629/240" iyz="0.0" izz="1/30" />
+
+        </inertial>
+        <visual>        
+            <origin rpy="0 0 0" xyz="1 0 0.05" />
+            <geometry>
+                <box size="2.5 0.2 0.2" />
+            </geometry>
+            </material name="red" />
+        </visual>
+
+        <collision>
+            <origin rpy="0 0 0" xyz="1 0 0.05" />
+            <geometry>
+             <box size="2.5 0.2 0.2" />
+            </geometry>
+        </collision>
+    
+    </link>
+
+</robot>
